@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>17 - Événements du DOM</title>
+    <script src="exemple.js" defer></script>
+</head>
+<body>
+    <h1 id="titre">Survolez-moi</h1>
+
+    <div id="boite" style="border:1px solid black; padding:1rem;">
+        <h3 id="sousTitre">Cliquez-moi (une seule fois)</h3>
+        <p>Cliquez sur ce bloc pour changer ses couleurs.</p>
+    </div>
+
+    <p><button id="btnUnique">Bouton (affiche l'événement dans la console)</button></p>
+    <p><a id="lien" href="https://example.com">Lien : le clic est annulé par preventDefault</a></p>
+
+    <h3>Liste (délégation d'événements, cliquez un élément pour le supprimer)</h3>
+    <ul id="liste">
+        <li>Un</li>
+        <li>Deux</li>
+        <li>Trois</li>
+    </ul>
+    <button id="btnAjouter">Ajouter un élément</button>
+</body>
+</html>

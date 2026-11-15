@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>18 - Formulaires</title>
+    <script src="exemple.js" defer></script>
+</head>
+<body>
+    <form id="monForm">
+        <div>
+            <label for="nom">Nom</label><br>
+            <input type="text" id="nom" name="nom" required>
+            <p id="erreur-nom" style="color:red"></p>
+        </div>
+        <div>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email">
+        </div>
+        <div>
+            <label for="password">Mot de passe</label><br>
+            <input type="password" id="password" name="password">
+        </div>
+        <div>
+            <label for="age">Âge</label><br>
+            <input type="number" id="age" name="age" min="0">
+        </div>
+        <div>
+            <label for="dateNaissance">Date de naissance</label><br>
+            <input type="date" id="dateNaissance" name="dateNaissance">
+        </div>
+        <div>
+            <label for="pays">Pays</label><br>
+            <select id="pays" name="pays">
+                <option value="fr">France</option>
+                <option value="be">Belgique</option>
+                <option value="lu">Luxembourg</option>
+            </select>
+        </div>
+        <fieldset>
+            <legend>Langues</legend>
+            <label><input type="checkbox" name="langues" value="Français"> Français</label>
+            <label><input type="checkbox" name="langues" value="Anglais"> Anglais</label>
+            <label><input type="checkbox" name="langues" value="Néerlandais"> Néerlandais</label>
+        </fieldset>
+        <fieldset>
+            <legend>Sexe</legend>
+            <label><input type="radio" name="sexe" value="homme"> Homme</label>
+            <label><input type="radio" name="sexe" value="femme"> Femme</label>
+            <label><input type="radio" name="sexe" value="autre"> Autre</label>
+        </fieldset>
+        <div>
+            <label for="bio">Description</label><br>
+            <textarea id="bio" name="bio" rows="4" cols="30"></textarea>
+        </div>
+        <div>
+            <label for="photo">Photo</label><br>
+            <input type="file" id="photo" name="photo">
+        </div>
+        <button type="submit">Envoyer</button>
+    </form>
+
+    <h3>Résultat</h3>
+    <pre id="resultat"></pre>
+</body>
+</html>

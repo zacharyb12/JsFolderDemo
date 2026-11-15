@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./script.js" defer></script>
+</head>
+<body>
+    
+    <div>
+        <form id="monForm">
+
+            <!-- Texte -->
+            <div>
+                <label> Nom</label>
+                </br>
+                <input type="text" name="nom"  required>
+            </div>
+
+            <!-- Email -->
+            <div>
+                <label>Email</label>
+                </br>
+                <input type="email" name="email" >
+            </div>
+
+            <!-- password -->
+            <div>
+                <label> Mot de passe</label>
+                </br>
+                <input type="password" name="password" >
+            </div>
+
+            <!-- number -->
+            <div>
+                <label> age</label>
+                </br>
+                <input type="number" name="age"  >
+            </div>
+
+            <!-- date -->
+            <div>
+                <label> Date de naissance</label>
+                </br>
+                <input type="date" name="dateNaissance">
+            </div>
+            
+            <!-- liste Deroulante -->
+            <div>
+                <label> Pays</label>
+                </br>
+                <select name="pays" >
+                    <option value="fr">France</option>
+                    <option value="be">Belgique</option>
+                    <option value="lu">Luxembourg</option>
+                </select>
+            </div>
+
+            <!-- Case a cocher -->
+            <div>
+                <fieldset>
+                    <legend> Choix</legend>
+                    <label><input type="checkbox" name="langues" value="Français"> Français</label>
+                    <label><input type="checkbox" name="langues" value="Anglais"> Anglais</label>
+                    <label><input type="checkbox" name="langues" value="Neerlandais"> Neerlandais</label>
+                </fieldset>
+            </div>
+
+            <!-- bouttons radio -->
+            <div>
+                <fieldset>
+                    <legend> Sexe</legend>
+                    <label><input type="radio" name="sexe" value="homme"> homme</label>
+                    <label><input type="radio" name="sexe" value="femme"> femme</label>
+                    <label><input type="radio" name="sexe" value="Autres"> Autres</label>
+                </fieldset>
+            </div>
+
+            <!-- Bio-->
+            <div>
+                <label> Description
+                </br>
+                <textarea name="bio" rows="5" cols="30"></textarea>
+                </label>
+            </div>
+
+            <!-- Photo -->
+            <div>
+                <label> Photo</label>
+                </br>
+                <input type="file" name="photo" >
+            </div>
+
+            <!-- bouton submit -->
+            <div>
+                <input type="submit" value="Envoyer">
+            </div>
+        </form>
+    </div>
+</body>
+</html>

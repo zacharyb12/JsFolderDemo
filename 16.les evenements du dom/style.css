@@ -1,0 +1,46 @@
+.container{
+    border: 1px solid black;
+    width: 60%;
+    margin: auto;
+}
+
+.container2{
+    border: 1px solid black;
+    width: 60%;
+    margin: auto;
+}
+
+h1{
+    text-align: center;
+    padding: 1rem;
+}
+
+h3{
+    text-align: center;
+    padding: 1rem;
+}
+
+.card{
+    display: flex;
+}
+
+.card2{
+    display: flex;
+}
+
+.texte{
+    width: 50%;
+    padding: 10px;
+
+}
+
+.texte2{
+    width: 50%;
+    padding: 10px;
+
+}
+
+img{
+    margin: auto;
+    padding: 1rem;
+}
