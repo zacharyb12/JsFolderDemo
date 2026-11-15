@@ -36,3 +36,40 @@ console.table(tableau);
 // alert("Bonjour");
 // let prenom = prompt("Votre prénom ?");   // renvoie une string, ou null si annulé
 // let ok = confirm("Êtes-vous sûr ?");     // true si OK, false si Annuler
+
+
+// ============================================================================
+// ALLER PLUS LOIN
+// ============================================================================
+
+// A. Portée (scope) : où une variable est visible
+{
+    let bloc = "visible seulement dans ce bloc { }";
+    var fonctionScope = "visible dans toute la fonction ou le fichier";
+}
+// console.log(bloc);            // ReferenceError si décommenté
+console.log(fonctionScope);      // fonctionne : var ignore les blocs
+
+// B. Hoisting : les var sont "remontées" (valeur undefined), pas les let / const
+console.log(hoisted);            // undefined : ne plante pas
+var hoisted = "ok";
+// console.log(horsPortee);      // ReferenceError : let/const ne sont pas accessibles avant leur déclaration
+let horsPortee = "ok";
+
+// C. Conversion de types (coercition) : JavaScript convertit parfois automatiquement
+console.log(Number("42"));       // 42
+console.log(Number("42 ans"));   // NaN
+console.log(String(42));         // "42"
+console.log(Boolean(""));        // false : chaîne vide = falsy
+console.log(Boolean("0"));       // true  : "0" (texte) = truthy
+console.log(Boolean(0));         // false : 0 (nombre) = falsy
+
+// Valeurs falsy (considérées comme fausses) : false, 0, "", null, undefined, NaN
+// Tout le reste est truthy.
+if ("") console.log("ne s'affiche pas");
+if ([]) console.log("un tableau vide EST truthy");
+
+// D. Vérifier un type proprement
+console.log(Array.isArray([]));  // true (typeof renvoie "object" pour un tableau)
+console.log(typeof null);        // "object" : bug historique de JavaScript
+console.log(null === null);      // true

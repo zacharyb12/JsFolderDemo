@@ -45,3 +45,66 @@ console.log(nomSaisi ?? "Inconnu");   // "Inconnu"
 let quantite = 0;
 console.log(quantite || 10);  // 10  (0 est falsy)
 console.log(quantite ?? 10);  // 0   (0 n'est ni null ni undefined)
+
+
+// ============================================================================
+// ALLER PLUS LOIN
+// ============================================================================
+
+// A. Conditions multiples : && et ||
+const age2 = 20;
+const aPermis = true;
+if (age2 >= 18 && aPermis) console.log("Peut conduire");
+if (age2 < 18 || !aPermis) console.log("Ne peut pas conduire");
+
+// B. Condition sur une valeur "truthy" / "falsy"
+const panier = [];
+if (panier.length === 0) console.log("Panier vide");   // comparaison explicite (plus clair)
+if (!panier.length) console.log("Panier vide (falsy)"); // 0 est falsy
+
+// C. Le piège du switch : oublier le break
+const jourCourant = 1;
+switch (jourCourant) {
+    case 1:
+        console.log("Lundi");
+    case 2:                 // pas de break : le code continue ici !
+        console.log("Mardi (fall-through)");
+        break;
+    default:
+        console.log("Autre");
+}
+
+// D. switch avec plusieurs cas regroupés
+const saison = "hiver";
+switch (saison) {
+    case "hiver":
+    case "automne":
+        console.log("Temps frais");
+        break;
+    case "été":
+        console.log("Chaud");
+        break;
+}
+
+// E. Ternaires imbriqués (à utiliser avec modération)
+const note = 15;
+const mention = note >= 16 ? "très bien" : note >= 14 ? "bien" : note >= 10 ? "passable" : "insuffisant";
+console.log(mention); // bien
+
+// F. Condition sur un objet
+const user = { nom: "Ana", admin: false };
+if (user.admin) {
+    console.log("Accès admin");
+} else if (user.nom) {
+    console.log(`Bonjour ${user.nom}`); // Bonjour Ana
+}
+
+// G. Logique de garde : sortir tôt avec return dans une fonction
+function afficherPrix(prix) {
+    if (prix === undefined) return "Prix non renseigné";  // garde : on sort tôt
+    if (prix < 0) return "Prix invalide";
+    return `${prix} €`;
+}
+console.log(afficherPrix());   // Prix non renseigné
+console.log(afficherPrix(-2)); // Prix invalide
+console.log(afficherPrix(12)); // 12 €

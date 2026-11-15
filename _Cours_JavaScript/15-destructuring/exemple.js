@@ -40,3 +40,51 @@ afficherInfo({ nom: "Jane" });          // Nom : Jane, Age : 18
 const donnees = { "code postal": "1000" };
 const { "code postal": codePostal } = donnees;
 console.log(codePostal); // 1000
+
+
+// ============================================================================
+// ALLER PLUS LOIN
+// ============================================================================
+
+// A. Destructuring dans une boucle
+const personnes = [{ nom: "Ana", age: 20 }, { nom: "Ben", age: 31 }];
+for (const { nom, age } of personnes) {
+    console.log(`${nom} : ${age} ans`);
+}
+
+// B. Avec entries : index et valeur
+for (const [index, { nom }] of personnes.entries()) {
+    console.log(index, nom);
+}
+
+// C. Une fonction qui renvoie plusieurs valeurs (tableau ou objet)
+function minMax(valeurs) {
+    return [Math.min(...valeurs), Math.max(...valeurs)];
+}
+const [petit, grand] = minMax([4, 9, 1, 7]);
+console.log(petit, grand); // 1 9
+
+function infosServeur() {
+    return { hote: "localhost", port: 3000 };
+}
+const { hote, port } = infosServeur();
+console.log(`${hote}:${port}`); // localhost:3000
+
+// D. Valeurs par défaut quand la propriété est undefined
+const config = { theme: undefined, taille: 14 };
+const { theme = "clair", taille = 12 } = config;
+console.log(theme, taille); // clair 14 (theme était undefined, donc défaut)
+// null n'est PAS remplacé par la valeur par défaut :
+const { couleur = "rouge" } = { couleur: null };
+console.log(couleur);       // null
+
+// E. Destructuring de paramètre avec valeurs par défaut
+function creerBouton({ texte = "OK", couleur = "bleu", large = false } = {}) {
+    return `${texte} (${couleur}${large ? ", large" : ""})`;
+}
+console.log(creerBouton());                       // OK (bleu)
+console.log(creerBouton({ texte: "Annuler", large: true })); // Annuler (bleu, large)
+
+// F. Destructuring de chaîne (chaque caractère)
+const [premiereLettre, , troisiemeLettre] = "Bonjour";
+console.log(premiereLettre, troisiemeLettre); // B n

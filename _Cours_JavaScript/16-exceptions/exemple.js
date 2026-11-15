@@ -49,3 +49,60 @@ try {
 } catch (error) {
     console.log(error.name, "-", error.message);
 }
+
+
+// ============================================================================
+// ALLER PLUS LOIN
+// ============================================================================
+
+// A. Créer sa propre erreur
+class ErreurValidation extends Error {
+    constructor(champ, message) {
+        super(message);
+        this.name = "ErreurValidation";
+        this.champ = champ;
+    }
+}
+try {
+    throw new ErreurValidation("email", "Adresse email invalide");
+} catch (erreur) {
+    console.log(erreur.name, erreur.champ, erreur.message);
+    console.log(erreur instanceof ErreurValidation); // true
+    console.log(erreur instanceof Error);            // true
+}
+
+// B. Ne rattraper que ce qu'on sait gérer, et relancer le reste
+function traiter(donnee) {
+    try {
+        return JSON.parse(donnee);
+    } catch (erreur) {
+        if (erreur instanceof SyntaxError) {
+            return null;       // on gère ce cas attendu
+        }
+        throw erreur;          // on relance les autres erreurs
+    }
+}
+console.log(traiter("{\"a\":1}")); // { a: 1 }
+console.log(traiter("pas du json")); // null
+
+// C. finally et return : finally s'exécute même avec return
+function exemple() {
+    try {
+        return "depuis try";
+    } finally {
+        console.log("finally s'exécute avant le return effectif");
+    }
+}
+console.log(exemple());
+
+// D. Erreurs asynchrones : un try/catch ne voit pas une erreur levée dans un setTimeout
+// try { setTimeout(() => { throw new Error("x"); }, 0); } catch (e) {}  // NON capturé ici
+// Dans les fonctions async, utiliser await et try/catch (voir chapitre 19).
+
+// E. Message d'erreur : informations utiles
+try {
+    null.nom;
+} catch (erreur) {
+    console.log(erreur.name);     // TypeError
+    console.log(erreur.message);  // message de la propriété null
+}
